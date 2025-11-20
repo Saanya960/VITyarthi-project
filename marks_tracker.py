@@ -14,12 +14,12 @@ def save_to_excel():
         messagebox.showerror("Error", "No data to save!")
         return
     
-  df = pd.DataFrame(students_data)
-  df.to_excel("Marks_Tracker.xlsx", index=False)
+df = pd.DataFrame(students_data)
+df.to_excel("Marks_Tracker.xlsx", index=False)
     
-  messagebox.showinfo("Success", "Data saved to Excel successfully!")
+messagebox.showinfo("Success", "Data saved to Excel successfully!")
   # adding student record
-  def add_record():
+def add_record():
 
   student_id = entry_student_id.get()
 
@@ -58,8 +58,8 @@ def save_to_excel():
   root.geometry("900x600")
   root.config(bg="#f0f0f0")
 
- title = tk.Label(root, text="College Marks Tracker", font=("Arial", 20, "bold"), bg="#f0f0f0")
- title.pack(pady=10)
+title = tk.Label(root, text="College Marks Tracker", font=("Arial", 20, "bold"), bg="#f0f0f0")
+title.pack(pady=10)
 # input frame
 frame = tk.Frame(root, bg="white", bd=2, relief=tk.GROOVE)
 frame.pack(pady=10)
