@@ -1,5 +1,6 @@
 # VITyarthi-project
 A marks tracker system offering marks of 8 courses to be stored in excel form.
+
 import tkinter as tk
 from tkinter import ttk, messagebox
 import pandas as pd
@@ -61,8 +62,39 @@ def save_to_excel():
  title = tk.Label(root, text="College Marks Tracker", font=("Arial", 20, "bold"), bg="#f0f0f0")
  title.pack(pady=10)
 # input frame
+frame = tk.Frame(root, bg="white", bd=2, relief=tk.GROOVE)
+frame.pack(pady=10)
+# Student ID
+tk.Label(frame, text="Student ID:", font=("Arial", 12), bg="white").grid(row=0, column=0, padx=10, pady=10)
+entry_student_id = tk.Entry(frame, font=("Arial", 12))
+entry_student_id.grid(row=0, column=1, padx=10, pady=10)
+# Course Inputs
+entries = []
+for i in range(8):
+    tk.Label(frame, text=f"{courses[i]}:", font=("Arial", 12), bg="white").grid(row=(i//2)+1, column=(i%2)*2, padx=10, pady=5)
+    e = tk.Entry(frame, font=("Arial", 12), width=10)
+    e.grid(row=(i//2)+1, column=(i%2)*2 + 1, padx=10, pady=5)
+    entries.append(e)
+# Add Record Button
+btn_add = tk.Button(root, text="Add Record", font=("Arial", 14), bg="#4CAF50", fg="white", command=add_record)
+btn_add.pack(pady=10)
 
-      
+# table view
+columns = ["Student_ID"] + courses + ["Total"]
+tree = ttk.Treeview(root, columns=columns, show="headings", height=10)
+
+for col in columns:
+    tree.heading(col, text=col)
+    tree.column(col, width=90)
+
+tree.pack(pady=10)
+# save button
+
+btn_save = tk.Button(root, text="Save to Excel", font=("Arial", 14), bg="#2196F3", fg="white", command=save_to_excel)
+btn_save.pack(pady=20)
+
+
+root.mainloop()
 
 
 
