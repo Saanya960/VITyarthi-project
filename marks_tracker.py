@@ -7,8 +7,8 @@ import pandas as pd
 # -------------------------------
 students_data = []
 
-courses = [f"Course_{i+1}" for i in range(8)]
-
+# courses = [f"Course_{i+1}" for i in range(8)]
+courses =["Mathematics", "Physics", "Chemistry", "Biology", "English", "History", "Geography", "Computer Science"]
 # -------------------------------
 # Save data to Excel
 # -------------------------------
@@ -41,18 +41,18 @@ def add_record():
         messagebox.showerror("Error", "All marks must be integers!")
         return
 
-    total_marks = sum(marks)
+    percentage_marks = sum(marks)/8
 
     # Prepare dictionary to store
     data = {"Student_ID": student_id}
     for i in range(8):
         data[courses[i]] = marks[i]
-    data["Total"] = total_marks
+    data["Percentage"] = str(percentage_marks)
 
     students_data.append(data)
 
     # Insert in Treeview
-    tree.insert("", tk.END, values=[student_id] + marks + [total_marks])
+    tree.insert("", tk.END, values=[student_id] + marks + [percentage_marks])
 
     # Clear fields
     entry_student_id.delete(0, tk.END)
@@ -67,7 +67,7 @@ root.title("Marks Tracker System - GUI")
 root.geometry("900x600")
 root.config(bg="#f0f0f0")
 
-title = tk.Label(root, text="College Marks Tracker (GUI Version)", font=("Arial", 20, "bold"), bg="#f0f0f0")
+title = tk.Label(root, text="College Marks Tracker", font=("Arial", 20, "bold"), bg="#f0f0f0")
 title.pack(pady=10)
 
 # -------------------------------
@@ -98,7 +98,7 @@ btn_add.pack(pady=10)
 # TABLE VIEW
 # -------------------------------
 
-columns = ["Student_ID"] + courses + ["Total"]
+columns = ["Student_ID"] + courses + ["Percentage"]
 tree = ttk.Treeview(root, columns=columns, show="headings", height=10)
 
 for col in columns:
@@ -122,4 +122,6 @@ root.mainloop()
   
 
   
+
+
 
