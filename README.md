@@ -1,7 +1,7 @@
 # PYTHON ESSENTIALS
 PROJECT-'COLLEGE MARKS TRACKER SYSTEM'
 # OVERVIEW
-In most colleges, student marks are recorded manually using registers or simple spreadsheets, due to which there are high chances of calculation mistakes (totals).Also, it is time-consuming and inefficient for faculty during exams or assessments. A digital solution is required to simplify the process of entering, storing, analyzing, and exporting student marks.
+In most colleges, student marks are recorded manually using registers or simple spreadsheets, due to which there are high chances of calculation mistakes (average).Also, it is time-consuming and inefficient for faculty during exams or assessments. A digital solution is required to simplify the process of entering, storing, analyzing, and exporting student marks.
 # features
 A marks tracker system offering marks of 8 courses to be stored in excel form.
 1. Provides a simple and user-friendly GUI.
